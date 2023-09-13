@@ -23,6 +23,23 @@ const config = convict({
       env: "DATABASE_CONNECTION",
     },
   },
+  jwt: {
+    timeout: {
+      doc: "Jwt Authentication",
+      format: String,
+      default: process.env.JWT_TIMEOUT_DURATION,
+      env: "JWT_TIMEOUT_DURATION",
+    },
+    secret: {
+      doc: "Jwt Authentication",
+      format: String,
+      default: process.env.JWT_SECRET,
+      env: "JWT_SECRET",
+    }
+
+  },
+
+
 });
 
 config.validate({ allowed: "strict" });

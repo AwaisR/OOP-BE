@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require("cors")
 var bodyParser = require('body-parser');
-const { Database, config } = require('./src/config')
+const { Database } = require('./src/config')
 const routes = require('./src/routes/app.routes')
 
 class Server extends Database {
@@ -17,7 +17,7 @@ class Server extends Database {
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(cors());
     this.app.use("/", routes);
-    await this.connect(config.get('db.host'));
+    await this.connect();
   }
 
   run(port) {

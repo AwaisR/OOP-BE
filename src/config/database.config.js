@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { config } = require('./app.config');
+
 class Database {
   constructor(dbconnectionString) {
     this.dbconnectionString = dbconnectionString
